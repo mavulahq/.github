@@ -9,8 +9,13 @@ function fail(message) {
   failures.push(message);
 }
 
+const fileCache = new Map();
+
 function read(path) {
-  return readFileSync(path, "utf8");
+  if (!fileCache.has(path)) {
+    fileCache.set(path, readFileSync(path, "utf8"));
+  }
+  return fileCache.get(path);
 }
 
 function requireFile(path) {
