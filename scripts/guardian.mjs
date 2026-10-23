@@ -32,6 +32,7 @@ function requireFile(path) {
   "profile/mavula_branding.png",
 ].forEach(requireFile);
 
+const fileContents = new Map();
 for (const [path, pattern] of [
   ["profile/README.md", /mavulahq\/finance-platform/],
   ["profile/README.md", /mavula\.io/],
@@ -39,7 +40,8 @@ for (const [path, pattern] of [
   ["profile/README.md", /security@mavula\.io/],
   ["profile/README.md", /legal@mavula\.io/],
 ]) {
-  if (!pattern.test(read(path))) fail(`${path} is missing ${pattern}`);
+  if (!fileContents.has(path)) fileContents.set(path, read(path));
+  if (!pattern.test(fileContents.get(path))) fail(`${path} is missing ${pattern}`);
 }
 
 const tracked = spawnSync("git", ["ls-files"], { encoding: "utf8" });
