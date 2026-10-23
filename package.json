@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "This repository maintains the public GitHub organisation profile and community-health defaults for MAVULA.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --experimental-test-coverage scripts/guardian.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mavulahq/.github.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mavulahq/.github/issues"
+  },
+  "homepage": "https://github.com/mavulahq/.github#readme"
+}
