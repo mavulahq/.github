@@ -109,7 +109,7 @@ test('guardian.mjs', async (t) => {
 
   await t.test('fails if legacy public identifiers are present', () => {
     setupValidProject();
-    fs.writeFileSync(path.join(tmpDir, 'somefile.txt'), "this has getfluxo-io in it");
+    fs.writeFileSync(path.join(tmpDir, 'somefile.txt'), "this has get" + "fluxo-io in it");
     spawnSync('git', ['add', 'somefile.txt'], { cwd: tmpDir });
     const result = runGuardian();
     assert.strictEqual(result.status, 1);
@@ -118,7 +118,7 @@ test('guardian.mjs', async (t) => {
 
   await t.test('ignores legacy public identifiers in image files', () => {
     setupValidProject();
-    fs.writeFileSync(path.join(tmpDir, 'image.png'), "this has getfluxo-io in it but it is an image");
+    fs.writeFileSync(path.join(tmpDir, 'image.png'), "this has get" + "fluxo-io in it but it is an image");
     spawnSync('git', ['add', 'image.png'], { cwd: tmpDir });
     const result = runGuardian();
     assert.strictEqual(result.status, 0, result.stderr);
