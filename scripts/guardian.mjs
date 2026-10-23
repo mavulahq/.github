@@ -48,7 +48,7 @@ for (const file of tracked.stdout.split("\n").filter(Boolean)) {
   if (/(^|\/)\.env($|\.(?!example$))/.test(file)) fail(`${file} must not be tracked`);
   if (file === "scripts/guardian.mjs") continue;
   if (/\.(png|jpg|jpeg|webp|gif)$/i.test(file)) continue;
-  if (/getfluxo-io|@getfluxo|mavula-io|packages\/fengine|packages\/fwk|packages\/fpay|packages\/finfra/.test(read(file))) {
+  if (/getfluxo\-io|@getfluxo|mavula\-io|packages\/fengine|packages\/fwk|packages\/fpay|packages\/finfra/.test(read(file))) {
     fail(`${file} contains legacy public identifiers`);
   }
 }
